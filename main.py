@@ -1,8 +1,12 @@
 import discord
 from discord.ext import tasks
 import socket
+from dotenv import load_dotenv
+import os
 
-TOKEN = 'MTIwNDQ0MzA5Njc5NzAyODQ1NA.GrBKu6.SvlenhU9iIqI_t187Sr9uyzNHmJKe4RrZKEY30'
+load_dotenv()
+
+TOKEN = os.getenv('BOT_TOKEN');
 CHANNEL_ID = 1204060306033344512  # Replace with your channel ID
 SERVER_ADDRESS = 'albeedev.ddns.net'  # Replace with your server address
 PORT = 25565  # Replace with your port
