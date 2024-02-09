@@ -52,7 +52,6 @@ async def check_server_status():
     global last_state
     current_state = "online" if check_port(SERVER_ADDRESS, PORT) else "offline"
     last_state = read_state()
-    await send_status_update('test')
     if current_state != last_state:
         # The state has changed
         message = f'Server is {current_state}!'
