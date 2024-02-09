@@ -6,10 +6,10 @@ import os
 
 load_dotenv()
 
-TOKEN = os.getenv('BOT_TOKEN');
-CHANNEL_ID = 1204060306033344512  # Replace with your channel ID
-SERVER_ADDRESS = 'albeedev.ddns.net'  # Replace with your server address
-PORT = 25565  # Replace with your port
+TOKEN = os.getenv('BOT_TOKEN')
+CHANNEL_ID = os.getenv('CHANNEL_ID')
+SERVER_ADDRESS = 'albeedev.ddns.net' 
+PORT = 25565
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
