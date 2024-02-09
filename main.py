@@ -39,7 +39,7 @@ def check_port(server, port):
 
 
 async def send_status_update(message):
-    channel = client.get_channel(CHANNEL_ID)
+    channel = client.get_channel(int(CHANNEL_ID))
     if channel:
         await channel.send(message)
 
@@ -47,11 +47,12 @@ async def send_status_update(message):
 last_state = None
 
 
-@tasks.loop(minutes=5)  # Adjust the interval as needed
+@tasks.loop(minutes=1)  # Adjust the interval as needed
 async def check_server_status():
     global last_state
     current_state = "online" if check_port(SERVER_ADDRESS, PORT) else "offline"
     last_state = read_state()
+    await send_status_update('test')
     if current_state != last_state:
         # The state has changed
         message = f'Server is {current_state}!'
