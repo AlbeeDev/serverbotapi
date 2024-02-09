@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11  # Specify the Python version you're using
+    commands:
+      - echo "Installing Python dependencies"
+      - pip install -r requirements.txt  # Install dependencies from requirements.txt
+
+  pre_build:
+    commands:
+      - echo "Pre-build step"  # You can add any steps you need to run before the actual build here
+
+  build:
+    commands:
+      - echo "Build started on `date`"
+      - echo "Running Python script"
+      - python3 main.py  # Replace with the command to run your Python script
+
+  post_build:
+    commands:
+      - echo "Build completed on `date`"
+      - echo "Post-build step"  # You can add any steps you need after the build here
+
+artifacts:
+  files:
+    - '**/*'  # Specify which files to package as build output, '**/*' will include all files in the build directory
+
+cache:
+  paths:
+    - '/root/.cache/pip'  # Cache the pip install directory to speed up future builds
