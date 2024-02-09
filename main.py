@@ -47,7 +47,7 @@ async def send_status_update(message):
 last_state = None
 
 
-@tasks.loop(minutes=1)  # Adjust the interval as needed
+@tasks.loop(minutes=5)  # Adjust the interval as needed
 async def check_server_status():
     global last_state
     current_state = "online" if check_port(SERVER_ADDRESS, PORT) else "offline"
